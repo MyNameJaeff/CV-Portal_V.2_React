@@ -1,0 +1,138 @@
+.cv-main {
+    height: fit-content;
+    font-family: 'JetBrains Mono', monospace;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw;
+}
+
+.cv-section {
+    width: 85%;
+    background-color: #f6eee3; /* Softer white */
+    padding: 2vw;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2vw;
+}
+
+.cv-title, .cv-subtitle, .cv-heading {
+    font-weight: 700;
+    color: #333;
+}
+
+.cv-title {
+    font-size: 3rem;
+    margin-bottom: 1.5vh;
+}
+
+.cv-subtitle {
+    font-size: 2rem;
+    margin-bottom: 1vh;
+}
+
+.cv-heading {
+    font-size: 1.5rem;
+    margin-bottom: 0.5vh;
+}
+
+.cv-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0.5vh 0;
+}
+
+.cv-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.cv-list-item {
+    margin: 0.5vh 0;
+}
+
+.cv-list-item strong {
+    font-weight: bold;
+}
+
+.cv-print-button {
+    width: 5vw;
+    height: 2vw;
+    align-self: center;
+    margin-bottom: 5vh;
+    background-color: #57dc74;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cv-print-button:hover {
+    background-color: #44a859;
+    border: #333 1px solid;
+}
+
+@media (max-width: 768px) {
+    .cv-main {
+        padding: 5vw 3vw;
+    }
+
+    .cv-title {
+        font-size: 2.5rem;
+    }
+
+    .cv-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .cv-heading {
+        font-size: 1.4rem;
+    }
+
+    .cv-section {
+        margin-bottom: 5vw;
+        padding: 5vw;
+    }
+
+    .cv-print-button {
+        width: 25%;
+        height: 5vh;
+        font-size: 1.5rem;
+    }
+}
+
+/* On print */
+@media print {
+    .cv-print-button {
+        display: none;
+    }
+
+    .summarySection{
+        margin-top: 30%;
+    }
+
+    .projectsSection{
+        margin-top: 45%;
+    }
+
+    .projectsSection div{
+        margin-bottom: 3vh;
+    }
+
+    br {
+        margin-bottom: 3vh;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    footer{
+        display: none;
+    }
+}
