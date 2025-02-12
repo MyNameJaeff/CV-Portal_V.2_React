@@ -1,4 +1,4 @@
-import "../css/cv.css";
+/* import "../css/cv.css"; */
 
 const CVComponent = () => {
 	return (

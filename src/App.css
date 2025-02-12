@@ -20,9 +20,7 @@ main {
   height: fit-content;
 }
 
-
-
-.homeDiv, .aboutDiv {
+.homeDiv, .aboutDiv, .contactDiv {
   flex-grow: 1;
   padding: 0 2vw;
   min-height: 87vh;
@@ -39,8 +37,67 @@ main {
 
 .homeDiv {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.logoImage {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 15vw;
+  width: 15vw;
+  margin: 2%;
+}
+
+.logoImage img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.contactLinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 30vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 2vh;
+  margin-left: 2vw;
+}
+
+.contactLinks li {
+  display: flex;
   align-items: center;
+}
+
+.contactLinks li a {
+  font-size: 1.2vw;
+  color: white;
+  margin-left: 1vw;
+  padding: 0 0.5vw;
+}
+
+.contactLinks li a:hover {
+  background-color: #575757;
+}
+
+li a.active {
+  color: #57dc74;
+  text-decoration: underline;
+}
+
+li img {
+  width: 3vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.invert {
+  filter: invert(1);
 }
 
 .portfolioCards {
@@ -239,6 +296,448 @@ footer p {
   height: 100%;
 }
 
+
+/* Example CSS for modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: visible;
+  animation: fadeIn 0.3s ease-out; /* Added animation */
+}
+
+.popupClose{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.popup {
+  z-index: 10;
+  background-color: #353135;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80vw;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto; /* Ensure content scrolls if it's too long */
+  animation: slideUp 0.3s ease-out; /* Added slide-up effect */
+}
+
+.close {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 4vh;
+  cursor: pointer;
+  &:hover {
+    color: #0056b3;
+  }
+}
+
+.cardButton {
+  cursor: pointer;
+}
+
+.content p{
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+}
+
+.modalImages{
+  padding: 10px;
+  border: 2px solid #57dc74;
+}
+
+.modalImage {
+  max-width: 100%;
+  margin: .1vh 0;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.modalHeader a
+  {
+      color: #57dc74;
+      font-size: 1.8rem;
+      transition: .1s;
+      &:hover {
+          color: #48b860;
+      }
+  }
+
+
+
+
+
+
+
+.cv-main {
+  height: fit-content;
+  font-family: 'JetBrains Mono', monospace;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vw;
+}
+
+.cv-section {
+  width: 85%;
+  background-color: #f6eee3; /* Softer white */
+  padding: 2vw;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2vw;
+}
+
+.cv-title, .cv-subtitle, .cv-heading {
+  font-weight: 700;
+  color: #333;
+}
+
+.cv-title {
+  font-size: 3rem;
+  margin-bottom: 1.5vh;
+}
+
+.cv-subtitle {
+  font-size: 2rem;
+  margin-bottom: 1vh;
+}
+
+.cv-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5vh;
+}
+
+.cv-text {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0.5vh 0;
+}
+
+.cv-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cv-list-item {
+  margin: 0.5vh 0;
+}
+
+.cv-list-item strong {
+  font-weight: bold;
+}
+
+.cv-print-button {
+  width: 5vw;
+  height: 2vw;
+  align-self: center;
+  margin-bottom: 5vh;
+  background-color: #57dc74;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cv-print-button:hover {
+  background-color: #44a859;
+  border: #333 1px solid;
+}
+
+
+/* On print */
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.5vh;
+  letter-spacing: .1vw;
+}
+
+.activeCard, .blurredCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 40vw;
+  padding: 0 1vw 1vw 1vw;
+  height: 60vh;
+  margin: 1vw;
+  border: .2vw solid black;
+  border-radius: 1vw;
+  background-color: #f6eee3;
+}
+
+.activeCard{
+  z-index: 2;
+  padding: 1vw;
+}
+
+.activeCard h3{
+  font-size: 1.3vw;
+  margin-left: 1%;
+}
+
+.activeCard p{
+  padding: 0 1vw;
+  font-size: 1vw;
+  margin-left: 1%;
+  overflow: auto;
+}
+
+.cardLine{
+  background-color: #1D1B1B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  height: 1%;
+  margin-bottom: 1%;
+}
+
+.blurredCard {
+  user-select: none;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  top: 16vh;  /* Adjusts the card position down */
+  left: 30vw; /* Adjusts the card position to the right */
+  filter: blur(.1vw); /* Apply a blur effect */
+}
+
+.blurredCard:hover{
+  cursor: pointer;
+}
+
+.cardButtons{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  left: 74vw;
+  top: 30vh;
+  height: 20vh;
+}
+
+.cardButtons div{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.cardButtons div p{
+  font-size: 1.1vw;
+  margin: 0;
+  margin-left: 1vw;
+}
+
+.cardButtons button{
+  width: 2vw;
+  height: 2vw;
+  border: none;
+  border-radius: 1vw;
+  background-color: #1d1b1b00;
+  border: .2vw solid #1D1B1B;
+  color: white;
+  font-size: 1vw;
+}
+
+.cardButtons button:hover{
+  background-color: #1D1B1B;
+  cursor:pointer;
+}
+
+.cardButtons .activeButton{
+  background-color: #57dc74;
+  color: black;
+  text-decoration: underline;
+}
+
+.activeButtonText{
+  font-size: 1.1vw;
+  margin: 0;
+  margin-left: 1vw;
+  text-decoration: underline;
+}
+
+/* On print */
+@media print {
+  .cv-print-button {
+      display: none;
+  }
+
+  .summarySection{
+      margin-top: 30%;
+  }
+
+  .projectsSection{
+      margin-top: 45%;
+  }
+
+  .projectsSection div{
+      margin-bottom: 3vh;
+  }
+
+  br {
+      margin-bottom: 3vh;
+  }
+
+  .navbar{
+      display: none;
+  }
+
+  footer{
+      display: none;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+/* On screen size changes */
+@media screen and (max-width: 768px) {
+  main{
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+  }
+
+  .cards{
+      font-size: 3vw;
+      top: auto;
+      left: auto;
+  }
+
+  .activeCard, .blurredCard{
+      width: 80vw;
+      height: 50vh;
+  }
+
+  .activeCard h3{
+      font-size: 5vw;
+  }
+
+  .activeCard p{
+      font-size: 3vw;
+  }
+
+  .cardLine{
+      width: 80%;
+  }
+
+  .blurredCard{
+      top: 10vh;
+      left: 10vw;
+      filter: blur(.3vw); /* Apply a blur effect */
+
+  }
+
+  .cardButtons{
+      margin-top: 5vh;
+      width: 85%;
+      position: inherit;
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+  }
+
+  .cardButtons button{
+      width: 10vw;
+      height: 10vw;
+      font-size: 5vw;
+      border-radius: 5vw;
+  }    
+
+  .cardButtons div{
+      height: 20vw;
+      width: 33%;
+      flex-direction: column;
+  }
+
+  .cardButtons div p{
+      font-size: 5vw;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+  }
+}
+@media (max-width: 768px) {
+  .cv-main {
+      padding: 5vw 3vw;
+  }
+
+  .cv-title {
+      font-size: 2.5rem;
+  }
+
+  .cv-subtitle {
+      font-size: 1.8rem;
+  }
+
+  .cv-heading {
+      font-size: 1.4rem;
+  }
+
+  .cv-section {
+      margin-bottom: 5vw;
+      padding: 5vw;
+  }
+
+  .cv-print-button {
+      width: 25%;
+      height: 5vh;
+      font-size: 1.5rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .navbar .navLinks {
       width: 100%;
@@ -293,4 +792,20 @@ footer p {
       width: 100%;
       height: 100%;
   }
+}
+@media screen and (max-width: 768px) {
+  main h1 {
+      font-size: 6vw;
+  }
+
+  main h2 {
+      margin-top: 2vw;
+      font-size: 4vw;
+  }
+
+  main .logoImage {
+      height: 30vw;
+      width: 30vw;
+  }
+  
 }

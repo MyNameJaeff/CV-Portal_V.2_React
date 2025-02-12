@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/about.css";
+/* import "../css/about.css"; */
 
 const cardTypes = ["about", "skills", "credentials"];
 
