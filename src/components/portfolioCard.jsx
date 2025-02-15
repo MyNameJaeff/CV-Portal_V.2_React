@@ -1,39 +1,40 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const PortfolioCard = ({ project }) => {
-	const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+const PortfolioCard = ({ project, className }) => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	// Determine if the project is a GitHub repo
 	const isGitHubRepo = Object.prototype.hasOwnProperty.call(
 		project,
 		"full_name",
-	); // Check if it's a GitHub repo
+	);
 
-	// Function to open the modal
+	// Open modal and prevent body scroll
 	const openModal = () => {
 		setIsModalOpen(true);
-		document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+		document.body.style.overflow = "hidden";
 	};
 
-	// Function to close the modal
+	// Close modal and restore body scroll
 	const closeModal = () => {
 		setIsModalOpen(false);
-		document.body.style.overflow = "auto"; // Restore scrolling when modal is closed
+		document.body.style.overflow = "auto";
 	};
 
 	return (
-		<div className="card">
+		<div className={`card ${className}`}>
 			<div className="cardHeader">
 				<h3>{project.name}</h3>
-				<button
-					className="cardButton"
-					type="button"
-					onClick={openModal} // Open the modal when clicked
-				>
-					{isGitHubRepo ? "View Repo" : "Read more!"}
+				<button className="cardButton" type="button" onClick={openModal}>
+					Read more!
 				</button>
 			</div>
 			<div className="cardBody">
-				<p>{project.text || "No description available"}</p>
+				<p>
+					{/* Use text for custom projects, description for GitHub repos */}
+					{project.text || project.description || "No description available"}
+				</p>
 				<div className="cardImage">
 					{isGitHubRepo ? (
 						<img
@@ -48,11 +49,6 @@ const PortfolioCard = ({ project }) => {
 					)}
 				</div>
 			</div>
-			{isGitHubRepo && (
-				<a href={project.html_url} target="_blank" rel="noreferrer">
-					Visit the Repository
-				</a>
-			)}
 
 			{/* Modal */}
 			{isModalOpen && (
@@ -72,26 +68,42 @@ const PortfolioCard = ({ project }) => {
 							className="close"
 							type="button"
 							aria-label="Close"
-							onClick={closeModal} // Close the modal
+							onClick={closeModal}
 						>
 							&times;
 						</button>
 						<div className="modalHeader">
-							<a href={project.link} target="_blank" rel="noreferrer">
+							<a
+								href={project.link || project.html_url}
+								target="_blank"
+								rel="noreferrer"
+							>
 								{project.name} &#128279;
 							</a>
 						</div>
 						<div className="content">
-							<p>{project.text}</p>
+							<p>
+								{project.text ||
+									project.description ||
+									"No description for this project! (Yet!)"}
+							</p>
 							<div className="modalImages">
-								{project.images?.map((image) => (
+								{isGitHubRepo ? (
 									<img
-										key={image}
-										src={`images/${image}`}
-										alt={image}
+										src={project.owner.avatar_url}
+										alt={`${project.name} - Avatar`}
 										className="modalImage"
 									/>
-								))}
+								) : (
+									project.images?.map((image) => (
+										<img
+											key={image}
+											src={`images/${image}`}
+											alt={image}
+											className="modalImage"
+										/>
+									))
+								)}
 							</div>
 						</div>
 					</div>

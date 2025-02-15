@@ -3,11 +3,37 @@ import PortfolioCard from "../components/portfolioCard";
 
 /* import "../css/portfolio.css"; */
 
+const getCheckerboardClass = (index) => {
+	const row = Math.floor(index / 4);
+	const column = index % 4;
+	const isLight =
+		(row % 2 === 0 && column % 2 === 0) || (row % 2 !== 0 && column % 2 !== 0);
+	return isLight ? "checkerboard-light" : "checkerboard-dark";
+};
+
 const Portfolio = () => {
 	const [selected, setSelected] = useState("Curated");
 	const [projects, setProjects] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(""); // Error state
+
+	/* An loooong request to test loading animation */
+	/* const GetDataFromGithub = async () => { 
+		setLoading(true);
+		try {
+			// Simulate the loading without fetching any data
+			await new Promise((resolve) => setTimeout(resolve, 200000)); // Simulate a 2-second delay
+			setProjects([]); // Clear any previous data (if needed)
+		} catch (error) {
+			console.error("Error: ", error);
+		} finally {
+			setLoading(false);
+		}
+	}; */
 
 	const GetDataFromGithub = async () => {
+		setLoading(true);
+		setError(""); // Reset error before each fetch attempt
 		try {
 			const response = await fetch(
 				"https://api.github.com/users/MyNameJaeff/repos",
@@ -19,14 +45,17 @@ const Portfolio = () => {
 			if (!Array.isArray(data)) {
 				throw new Error("Invalid or missing array in JSON.");
 			}
-			console.log(data);
 			setProjects(data);
 		} catch (error) {
-			console.error("Error fetching JSON: ", error);
+			setError(`Error fetching JSON: ${error.message}`); // Set error message
+		} finally {
+			setLoading(false);
 		}
 	};
 
 	const GetDataFromJSON = async () => {
+		setLoading(true);
+		setError(""); // Reset error before each fetch attempt
 		try {
 			const response = await fetch("/assets/portfolio.json");
 			if (!response.ok) {
@@ -36,14 +65,15 @@ const Portfolio = () => {
 			if (!Array.isArray(data.projects)) {
 				throw new Error('Invalid or missing "projects" array in JSON.');
 			}
-			console.log(data.projects);
 			setProjects(data.projects);
 		} catch (error) {
-			console.error("Error fetching JSON: ", error);
+			setError(`Error fetching JSON: ${error.message}`); // Set error message
+		} finally {
+			setLoading(false);
 		}
 	};
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <No. I want this to run once the selected state changes. I don't want it to run every time the projects state changes.>
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		if (selected === "Curated") {
 			GetDataFromJSON();
@@ -68,16 +98,41 @@ const Portfolio = () => {
 				))}
 			</div>
 			<div className="portfolioCards">
-				{projects.map((project) => (
-					<PortfolioCard key={project.number} project={project} />
-				))}
-
-				{/* Add empty divs to make the number of cards a multiple of 4 */}
-				{projects.length % 4 !== 0 &&
-					Array.from({ length: 4 - (projects.length % 4) }).map((_, index) => (
-						<div key={`empty-${index}-${Math.random()}`} className="emptyDiv" />
-					))}
+				{loading ? (
+					<div className="loading-overlay">
+						<div className="spinner" />
+					</div>
+				) : error ? (
+					<div className="error-message">
+						<p>
+							{error} {/* Display error message */}
+						</p>
+					</div>
+				) : (
+					<>
+						{projects.map((project, index) => (
+							<PortfolioCard
+								key={project.number}
+								project={project}
+								className={getCheckerboardClass(index)}
+							/>
+						))}
+						{projects.length % 4 !== 0 &&
+							Array.from({ length: 4 - (projects.length % 4) }).map(
+								(_, index) => {
+									const overallIndex = projects.length + index;
+									return (
+										<div
+											key={`empty-${index}-${Math.random()}`}
+											className={`emptyDiv ${getCheckerboardClass(overallIndex)}`}
+										/>
+									);
+								},
+							)}
+					</>
+				)}
 			</div>
+
 			<style>{`
         .portfolioSelection button {
           padding: 8px 16px;
@@ -91,6 +146,13 @@ const Portfolio = () => {
           background-color: #007bff;
           color: white;
           border-color: #007bff;
+        }
+        .error-message {
+          color: red;
+          font-size: 16px;
+          padding: 10px;
+          background-color:rgba(255, 0, 55, 0.1);
+          border: 1px solid #f5c6cb;
         }
       `}</style>
 		</div>
