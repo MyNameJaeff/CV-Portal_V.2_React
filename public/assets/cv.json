@@ -1,0 +1,39 @@
+{
+    "education": [
+        {
+            "title": "Full-Stack .NET Web Developer",
+            "institution": "Chas Academy",
+            "location": "Sweden",
+            "period": "Started 2024 - To be Graduated: 2026",
+            "details": [
+                "Currently studying full-stack .NET web development at Chas Academy.",
+                "Learning to build web applications using C#, ASP.NET, React, and Node.js.",
+                "Developing skills in database management, version control, and project management."
+            ]
+        },
+        {
+            "title": "High school engineer in Software Engineering",
+            "institution": "NTI Södertörn",
+            "location": "Sweden",
+            "period": "Started 2023 - Graduated: 2024",
+            "details": [
+                "A technical fourth year specializing in practical software development post high school, giving me the title of high school engineer.",
+                "Completed the first semester with a focus on advanced programming and application development."
+            ]
+        }
+    ],
+    "workExperience": [
+        {
+            "title": "Gata-parkenheten",
+            "company": "Samhällsbyggnadsförvaltningen",
+            "location": "Nynäshamn, Sweden",
+            "period": "2021/07/26 - 2021/08/13",
+            "tasks": [
+                "Maintained and managed the municipality's public spaces, including cleaning, tidying, and raking.",
+                "Ensured cleanliness and order in public areas through regular maintenance and upkeep.",
+                "Developed strong time management skills by adhering to schedules and completing tasks efficiently.",
+                "Learned to work independently and take responsibility for assigned duties, as well as work as a team to complete a task with efficiency."
+            ]
+        }
+    ]
+}

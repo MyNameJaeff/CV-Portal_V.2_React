@@ -14,73 +14,45 @@ const getCheckerboardClass = (index) => {
 const Portfolio = () => {
 	const [selected, setSelected] = useState("Curated");
 	const [projects, setProjects] = useState([]);
+	const [curatedProjects, setCuratedProjects] = useState([]);
+	const [githubProjects, setGithubProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(""); // Error state
 
-	/* An loooong request to test loading animation */
-	/* const GetDataFromGithub = async () => { 
-		setLoading(true);
-		try {
-			// Simulate the loading without fetching any data
-			await new Promise((resolve) => setTimeout(resolve, 200000)); // Simulate a 2-second delay
-			setProjects([]); // Clear any previous data (if needed)
-		} catch (error) {
-			console.error("Error: ", error);
-		} finally {
-			setLoading(false);
-		}
-	}; */
-
-	const GetDataFromGithub = async () => {
-		setLoading(true);
-		setError(""); // Reset error before each fetch attempt
-		try {
-			const response = await fetch(
-				"https://api.github.com/users/MyNameJaeff/repos",
-			);
-			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`);
-			}
-			const data = await response.json();
-			if (!Array.isArray(data)) {
-				throw new Error("Invalid or missing array in JSON.");
-			}
-			setProjects(data);
-		} catch (error) {
-			setError(`Error fetching JSON: ${error.message}`); // Set error message
-		} finally {
-			setLoading(false);
-		}
-	};
-
-	const GetDataFromJSON = async () => {
-		setLoading(true);
-		setError(""); // Reset error before each fetch attempt
-		try {
-			const response = await fetch("/assets/portfolio.json");
-			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`);
-			}
-			const data = await response.json();
-			if (!Array.isArray(data.projects)) {
-				throw new Error('Invalid or missing "projects" array in JSON.');
-			}
-			setProjects(data.projects);
-		} catch (error) {
-			setError(`Error fetching JSON: ${error.message}`); // Set error message
-		} finally {
-			setLoading(false);
-		}
-	};
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	// Set projects based on selected category
 	useEffect(() => {
 		if (selected === "Curated") {
-			GetDataFromJSON();
+			setProjects(curatedProjects);
 		} else {
-			GetDataFromGithub();
+			setProjects(githubProjects);
 		}
-	}, [selected]);
+	}, [curatedProjects, githubProjects, selected]);
+
+	// Fetch data from JSON file and GitHub API when component mounts
+	useEffect(() => {
+		setLoading(true);
+		fetch("/assets/portfolio.json")
+			.then((res) => res.json())
+			.then((data) => {
+				setCuratedProjects(data.projects);
+			})
+			.catch((error) => {
+				console.error("Error fetching data:", error);
+				setError("Error fetching data");
+			})
+			.finally(() => setLoading(false));
+
+		fetch("https://api.github.com/users/MyNameJaeff/repos")
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				setGithubProjects(data);
+			})
+			.catch((error) => {
+				console.error("Error fetching data:", error);
+				setError("Error fetching data");
+			});
+	}, []);
 
 	return (
 		<div className="portfolioDiv">

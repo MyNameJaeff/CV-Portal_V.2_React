@@ -112,7 +112,8 @@ li img {
   position: relative; /* To position overlay relative to this container */
 }
 
-.portfolioCards > div {
+.portfolioCards > div:not(.loading-overlay) {
+  width: calc(100% - 2vw - 2px - 2px); /* 100% width - 2vw padding - 2px border - 2px border */
   border: 2px solid #643c64;
   min-height: 20vw;
   padding: 1vw;
@@ -167,11 +168,17 @@ li img {
   height: 20%;
 }
 
+.cardHeader h3 {
+  overflow: hidden;
+  width: 70%;
+}
+
 .cardButton {
+  width: 25%;
   background-color: #1d1b1d;
   color: #ffffff;
   border: 1px solid #ffffff;
-  padding: 0.5vw 1vw;
+  padding: 2% 1%;
   border-radius: 5px;
   transition: 0.3s ease background-color;
   &:hover {
@@ -433,7 +440,7 @@ footer p {
 
 .cv-section {
   width: 85%;
-  background-color: #f6eee3; /* Softer white */
+  background-color: #f6eee3;
   padding: 2vw;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -563,9 +570,9 @@ main{
   position: absolute;
   overflow: hidden;
   z-index: 1;
-  top: 16vh;  /* Adjusts the card position down */
-  left: 30vw; /* Adjusts the card position to the right */
-  filter: blur(.1vw); /* Apply a blur effect */
+  top: 16vh;
+  left: 30vw;
+  filter: blur(.1vw);
 }
 
 .blurredCard:hover{
@@ -649,11 +656,14 @@ main{
   }
 
   .projectsSection{
-      margin-top: 25%;
+      margin-top: -0%;
+      margin-bottom: 0;
+      padding-bottom: 0;
+
   }
 
   .projectsSection div{
-      margin-bottom: 3vh;
+      margin-bottom: 2vh;
   }
 
   .educationSection {
@@ -694,6 +704,19 @@ main{
 
 
 /* On screen size changes */
+@media screen and (max-width: 1250px) {
+  .portfolioCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .portfolioCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 @media screen and (max-width: 768px) {
   main{
       flex-direction: column;
@@ -702,7 +725,7 @@ main{
       height: fit-content;
   }
 
-  .homeDiv, .aboutDiv, .portfolioDiv{
+  .homeDiv, .aboutDiv, .portfolioDiv, .contactDiv {
     min-height: 91vh;
   }
 
@@ -904,5 +927,15 @@ main{
   .contactLinks {
     width: 80%;
     height: 30vh;
+  }
+
+  .contactLinks li img{
+    width: 5vw;
+  }
+
+  .contactLinks li a {
+    font-size: 3.5vw;
+    margin-left: 2vw;
+    padding: 0 1vw;
   }
 }

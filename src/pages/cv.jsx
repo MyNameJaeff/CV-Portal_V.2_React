@@ -1,6 +1,20 @@
-/* import "../css/cv.css"; */
+import { useEffect, useState } from "react";
 
 const CVComponent = () => {
+	const [education, setEducation] = useState([]);
+	const [workExperience, setWorkExperience] = useState([]);
+
+	// Hämta data från JSON
+	useEffect(() => {
+		fetch("/assets/cv.json")
+			.then((res) => res.json())
+			.then((data) => {
+				setEducation(data.education);
+				setWorkExperience(data.workExperience);
+			})
+			.catch((error) => console.error("Error fetching data:", error));
+	}, []);
+
 	return (
 		<div className="cv-main">
 			<button
@@ -68,97 +82,42 @@ const CVComponent = () => {
 
 			<section className="cv-section workExperienceSection">
 				<h3 className="cv-heading">Work Experience</h3>
-				<div className="cv-text">
-					<h4>Gata-parkenheten</h4>
-					<p>
-						<strong>Samhällsbyggnadsförvaltningen</strong> - Nynäshamn, Sweden
-					</p>
-					<p>2021/07/26 - 2021/08/13</p>
-					<ul className="cv-list">
-						<li className="cv-list-item">
-							Maintained and managed the municipality&apos;s public spaces,
-							including cleaning, tidying, and raking.
-						</li>
-						<li className="cv-list-item">
-							Ensured cleanliness and order in public areas through regular
-							maintenance and upkeep.
-						</li>
-						<li className="cv-list-item">
-							Developed strong time management skills by adhering to schedules
-							and completing tasks efficiently.
-						</li>
-						<li className="cv-list-item">
-							Learned to work independently and take responsibility for assigned
-							duties, as well as work as a team to complete a task with
-							efficiency.
-						</li>
-					</ul>
-				</div>
+				{workExperience.map((job, index) => (
+					<div className="cv-text" key={`${index}-${Math.random()}`}>
+						<h4>{job.title}</h4>
+						<p>
+							<strong>{job.company}</strong> - {job.location}
+						</p>
+						<p>{job.period}</p>
+						<ul className="cv-list">
+							{job.tasks.map((task, idx) => (
+								<li className="cv-list-item" key={`${idx}-${Math.random()}`}>
+									{task}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
 			</section>
 
 			<section className="cv-section educationSection">
 				<h3 className="cv-heading">Education</h3>
-				<div className="cv-text">
-					<h4>Full-Stack .NET Web Developer</h4>
-					<p>
-						<strong>Chas Academy</strong> - Sweden
-					</p>
-					<p>Started 2024 - To be Graduated: 2026</p>
-					<ul className="cv-list">
-						<li className="cv-list-item">
-							Currently studying full-stack .NET web development at Chas
-							Academy.
-						</li>
-						<li className="cv-list-item">
-							Learning to build web applications using C#, ASP.NET, React, and
-							Node.js.
-						</li>
-						<li className="cv-list-item">
-							Developing skills in database management, version control, and
-							project management.
-						</li>
-					</ul>
-				</div>
-				<br />
-				<div className="cv-text">
-					<h4>High school engineer in Software Engineering</h4>
-					<p>
-						<strong>NTI Södertörn</strong> - Sweden
-					</p>
-					<p>Started 2023 - Graduated: 2024</p>
-					<ul className="cv-list">
-						<li className="cv-list-item">
-							A technical fourth year specializing in practical software
-							development post high school, giving me the title of high school
-							engineer.
-						</li>
-						<li className="cv-list-item">
-							Completed the first semester with a focus on advanced programming
-							and application development.
-						</li>
-					</ul>
-				</div>
-				<br />
-				<div className="cv-text">
-					<h4>High school</h4>
-					<p>
-						<strong>NTI Södertörn</strong> - Sweden
-					</p>
-					<p>Started 2020 - Graduated: 2023</p>
-					<ul className="cv-list">
-						<li className="cv-list-item">
-							Studied Information and media technology with a general focus on
-							programming. I learned the basics of programming and web
-							development as well as some C#, Python, databases and PHP.
-						</li>
-						<li className="cv-list-item">
-							I also learned a bit about computer networks, computer systems,
-							and how to build a computer. Included in the education was also
-							some Math, English, Physics, Science,and Swedish. As extra courses
-							I also took entrepreneurship and digital creation.
-						</li>
-					</ul>
-				</div>
+				{education.map((edu, index) => (
+					<div className="cv-text" key={`${index}-${Math.random()}`}>
+						<h4>{edu.title}</h4>
+						<p>
+							<strong>{edu.institution}</strong> - {edu.location}
+						</p>
+						<p>{edu.period}</p>
+						<ul className="cv-list">
+							{edu.details.map((detail, idx) => (
+								<li className="cv-list-item" key={`${idx}-${Math.random()}`}>
+									{detail}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
 			</section>
 
 			<section className="cv-section projectsSection">

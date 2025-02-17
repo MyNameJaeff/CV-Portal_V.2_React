@@ -33,7 +33,38 @@ const PortfolioCard = ({ project, className }) => {
 			<div className="cardBody">
 				<p>
 					{/* Use text for custom projects, description for GitHub repos */}
-					{project.text || project.description || "No description available"}
+					{project.created_at && (
+						<>
+							<span>
+								<strong>Created:</strong>{" "}
+								{new Date(project.created_at).toLocaleString("sv-SE", {
+									year: "numeric",
+									month: "2-digit",
+									day: "2-digit",
+									hour: "2-digit",
+									minute: "2-digit",
+								})}
+								<br />
+								<strong>Updated:</strong>{" "}
+								{new Date(project.updated_at).toLocaleString("sv-SE", {
+									year: "numeric",
+									month: "2-digit",
+									day: "2-digit",
+									hour: "2-digit",
+									minute: "2-digit",
+								})}
+							</span>
+							<br />
+						</>
+					)}
+					{project.text ||
+						(project.description && (
+							<>
+								<strong>Description:</strong>{" "}
+								{project.text || project.description}
+								<br />
+							</>
+						)) || <strong>No description for this project!</strong>}
 				</p>
 				<div className="cardImage">
 					{isGitHubRepo ? (
