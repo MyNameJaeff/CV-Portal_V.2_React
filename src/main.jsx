@@ -12,7 +12,7 @@ import Home from "./pages/home.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-	<HashRouter basename="/CV-Portal_V.2_React">
+	<HashRouter>
 		<Routes>
 			<Route element={<App />}>
 				{/* App is the main layout, as only changing part is content */}
