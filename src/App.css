@@ -6,7 +6,8 @@
 }
 
 
-html,body {
+html,
+body {
   height: fit-content;
   font-family: "JetBrains Mono", serif;
   color: #ffffff;
@@ -730,13 +731,37 @@ main {
 /* On screen size changes */
 @media screen and (max-width: 1250px) {
   .portfolioCards {
+    min-height: 87vh;
+  }
+
+  .portfolioCards {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .portfolioCards>div:not(.loading-overlay) {
+    min-height: 50vh;
+  }
+
+  .emptyDiv {
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 1000px) {
+  .portfolioDiv {
+    min-height: 87vh;
+  }
+
   .portfolioCards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolioCards>div:not(.loading-overlay) {
+    min-height: 60vh;
+  }
+
+  .emptyDiv {
+    display: none !important;
   }
 }
 
@@ -925,7 +950,7 @@ main {
   }
 
   .portfolioCards>div {
-    min-height: 40vh;
+    min-height: 60vh !important;
   }
 
   .cardBody p {
