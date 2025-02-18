@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 /* Component imports */
 import App from "./App.jsx";
@@ -12,7 +12,7 @@ import Home from "./pages/home.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-	<BrowserRouter basename="/CV-Portal_V.2_React">
+	<HashRouter basename="/CV-Portal_V.2_React">
 		<Routes>
 			<Route element={<App />}>
 				{/* App is the main layout, as only changing part is content */}
@@ -32,5 +32,5 @@ ReactDOM.createRoot(root).render(
 				/> {/* 404 page */}
 			</Route>
 		</Routes>
-	</BrowserRouter>,
+	</HashRouter>
 );
