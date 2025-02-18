@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom"; 
 
 /* Component imports */
 import App from "./App.jsx";
@@ -12,27 +12,25 @@ import Home from "./pages/home.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-	<HashRouter>
-		<Routes>
-			<Route element={<App />}>
-				{/* App is the main layout, as only changing part is content */}
-				<Route path="/" element={<Home />} />
-				<Route path="about" element={<About />} />
-				<Route path="contact" element={<Contact />} />
-				<Route path="cv" element={<CV />} />
-				<Route path="portfolio" element={<Portfolio />} />
-
-				{/* Catch-all route for 404 page */}
-				<Route
-					path="*"
-					element={
-						<div className="homeDiv">
-							<h1>404 - Not Found</h1>
-							<p>Sorry, the page you are looking for does not exist.</p>
-						</div>
-					}
-				/>
-			</Route>
-		</Routes>
-	</HashRouter>
+  <HashRouter>
+    <Routes>
+      <Route element={<App />}>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="cv" element={<CV />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        
+        <Route
+          path="*"
+          element={
+            <div className="homeDiv">
+              <h1>404 - Not Found</h1>
+              <p>Sorry, the page you are looking for does not exist.</p>
+            </div>
+          }
+        />
+      </Route>
+    </Routes>
+  </HashRouter>
 );
