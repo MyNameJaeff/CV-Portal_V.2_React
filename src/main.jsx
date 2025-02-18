@@ -12,7 +12,7 @@ import Home from "./pages/home.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-	<BrowserRouter>
+	<BrowserRouter basename="/CV-Portal_V.2_React">
 		<Routes>
 			<Route element={<App />}>
 				{" "}
