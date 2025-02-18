@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 /* Component imports */
 import App from "./App.jsx";
@@ -12,7 +12,7 @@ import Home from "./pages/home.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-	<BrowserRouter basename="/CV-Portal_V.2_React">
+	<HashRouter basename="/CV-Portal_V.2_React">
 		<Routes>
 			<Route element={<App />}>
 				{/* App is the main layout, as only changing part is content */}
@@ -21,6 +21,8 @@ ReactDOM.createRoot(root).render(
 				<Route path="contact" element={<Contact />} />
 				<Route path="cv" element={<CV />} />
 				<Route path="portfolio" element={<Portfolio />} />
+
+				{/* Catch-all route for 404 page */}
 				<Route
 					path="*"
 					element={
@@ -29,8 +31,8 @@ ReactDOM.createRoot(root).render(
 							<p>Sorry, the page you are looking for does not exist.</p>
 						</div>
 					}
-				/> {/* 404 page */}
+				/>
 			</Route>
 		</Routes>
-	</BrowserRouter>,
+	</HashRouter>
 );
