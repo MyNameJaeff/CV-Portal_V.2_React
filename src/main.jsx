@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // korrigerad import
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 
 /* Component imports */
 import App from "./App.jsx";
@@ -15,7 +15,6 @@ ReactDOM.createRoot(root).render(
 	<BrowserRouter basename="/CV-Portal_V.2_React">
 		<Routes>
 			<Route element={<App />}>
-				{" "}
 				{/* App is the main layout, as only changing part is content */}
 				<Route path="/" element={<Home />} />
 				<Route path="about" element={<About />} />

@@ -6,33 +6,33 @@ const Home = () => {
 			<div className="skillsDiv">
 				<ul>
 					<li>
-						<img src={`/logos/HTML5_logo.png`} alt="HTML5 Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/HTML5_logo.png`} alt="HTML5 Logo" />
 					</li>
 					<li>
-						<img src={`/logos/CSS3_logo.png`} alt="CSS3 Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/CSS3_logo.png`} alt="CSS3 Logo" />
 					</li>
 					<li>
-						<img src={`/logos/Javascript_logo.png`} alt="JavaScript Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/Javascript_logo.png`} alt="JavaScript Logo" />
 					</li>
 					<li>
-						<img src={`/logos/React_logo.png`} alt="React Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/React_logo.png`} alt="React Logo" />
 					</li>
 					<li>
-						<img src={`/logos/node-js_logo.png`} alt="Node.js Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/node-js_logo.png`} alt="Node.js Logo" />
 					</li>
 					<li>
-						<img src={`/logos/Logo_C_sharp.png`} alt="C# Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/Logo_C_sharp.png`} alt="C# Logo" />
 					</li>
 					<li>
-						<img src={`/logos/SQL_logo.png`} alt="SQL Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/SQL_logo.png`} alt="SQL Logo" />
 					</li>
 					<li>
-						<img src={`/logos/Github_logo.png`} alt="Github Logo" />
+						<img src={`/CV-Portal_V.2_React/logos/Github_logo.png`} alt="Github Logo" />
 					</li>
 				</ul>
 			</div>
 			<div className="logoImage">
-				<img src={`/logos/ChasLogo.png`} alt="Chas Academy Logo" />
+				<img src={`/CV-Portal_V.2_React/logos/ChasLogo.png`} alt="Chas Academy Logo" />
 			</div>
 		</div>
 	);

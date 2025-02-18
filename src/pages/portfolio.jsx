@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import PortfolioCard from "../components/portfolioCard";
 
-/* import "../css/portfolio.css"; */
-
 const getCheckerboardClass = (index) => {
 	const row = Math.floor(index / 4);
 	const column = index % 4;
@@ -17,7 +15,7 @@ const Portfolio = () => {
 	const [curatedProjects, setCuratedProjects] = useState([]);
 	const [githubProjects, setGithubProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(""); // Error state
+	const [error, setError] = useState(""); 
 
 	// Set projects based on selected category
 	useEffect(() => {
@@ -31,7 +29,7 @@ const Portfolio = () => {
 	// Fetch data from JSON file and GitHub API when component mounts
 	useEffect(() => {
 		setLoading(true);
-		fetch("/assets/portfolio.json")
+		fetch("/CV-Portal_V.2_React/assets/portfolio.json")
 			.then((res) => res.json())
 			.then((data) => {
 				setCuratedProjects(data.projects);
@@ -76,9 +74,7 @@ const Portfolio = () => {
 					</div>
 				) : error ? (
 					<div className="error-message">
-						<p>
-							{error} {/* Display error message */}
-						</p>
+						<p>{error}</p>
 					</div>
 				) : (
 					<>
