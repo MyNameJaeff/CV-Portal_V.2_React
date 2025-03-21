@@ -56,21 +56,38 @@ const CVComponent = () => {
 					</li>
 				</ul>
 			</section>
+			{/* <section className="cv-section skillsSection">
+				<h3 className="cv-heading">Skills</h3>
+				<ul className="cv-list">
+					<li className="cv-list-item">Kundservice och teamwork</li>
+					<li className="cv-list-item">Ansvarstagande och initiativrik</li>
+					<li className="cv-list-item">Tidsplanering och effektivt arbete</li>
+					<li className="cv-list-item">Flexibel och positiv inställning</li>
+				</ul>
+			</section>
+			<section className="cv-section skillsSection">
+				<h3 className="cv-heading">Language Skills</h3>
+				<ul className="cv-list">
+					<li className="cv-list-item">Svenska: Flytande (tal och skrift)</li>
+					<li className="cv-list-item">Engelska: Flytande (tal och skrift)</li>
+				</ul>
+			</section> */}
 
 			<section className="cv-section summarySection">
 				<h3 className="cv-heading">Summary</h3>
 				<p className="cv-text">
-					I’m currently studying full-stack .NET web development at Chas Academy.
-					With 5 years of experience, including 4 years at NTI Södertörn, I’ve
-					built a strong foundation in web development. This includes 3 years in
-					high school and 1 year specializing as a high school engineer.
+					I’m currently studying full-stack .NET web development at Chas
+					Academy. With 5 years of experience, including 4 years at NTI
+					Södertörn, I’ve built a strong foundation in web development. This
+					includes 3 years in high school and 1 year specializing as a high
+					school engineer.
 				</p>
 				<br />
 				<p className="cv-text">
 					Now in my first year at Chas Academy, I’ve expanded my skills in
-					full-stack development. I’m proficient in HTML, CSS, JavaScript, React,
-					C#, PHP, and Python. My background allows me to handle both front-end
-					and back-end challenges effectively.
+					full-stack development. I’m proficient in HTML, CSS, JavaScript,
+					React, C#, PHP, and Python. My background allows me to handle both
+					front-end and back-end challenges effectively.
 				</p>
 				<br />
 				<p className="cv-text">
@@ -79,6 +96,22 @@ const CVComponent = () => {
 					can grow my skills further and contribute to a dynamic team.
 				</p>
 			</section>
+			{/* <section className="cv-section summarySection">
+				<h3 className="cv-heading">Summary</h3>
+				<p className="cv-text">
+					Jag är en engagerad och serviceminded person med erfarenhet av både
+					kundservice och teknik. Jag studerar för närvarande till full-stack
+					.NET webbutvecklare på Chas Academy, men jag har också arbetat
+					praktiskt i teamorienterade miljöer. Jag trivs i roller där jag får ta
+					ansvar och bidra till en positiv kundupplevelse.{" "}
+				</p>
+				<br />
+				<p className="cv-text">
+					Nu söker jag en deltidsanställning som butikssäljare, där jag kan
+					använda mina färdigheter i samarbete, service och effektivt arbete för
+					att skapa den bästa butiksupplevelsen för kunderna.
+				</p>
+			</section> */}
 
 			<section className="cv-section workExperienceSection">
 				<h3 className="cv-heading">Work Experience</h3>
