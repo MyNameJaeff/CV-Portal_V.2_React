@@ -43,7 +43,7 @@ const CVComponent = () => {
 						<strong>Languages:</strong> HTML, CSS, JavaScript, C#, PHP, Python
 					</li>
 					<li className="cv-list-item">
-						<strong>Frameworks:</strong> React, Node.js, ASP.NET
+						<strong>Frameworks:</strong> React, Bootstrap, Tailwind, .NET
 					</li>
 					<li className="cv-list-item">
 						<strong>Version Control:</strong> Git, GitHub
@@ -77,23 +77,25 @@ const CVComponent = () => {
 				<h3 className="cv-heading">Summary</h3>
 				<p className="cv-text">
 					I’m currently studying full-stack .NET web development at Chas
-					Academy. With 5 years of experience, including 4 years at NTI
-					Södertörn, I’ve built a strong foundation in web development. This
-					includes 3 years in high school and 1 year specializing as a high
-					school engineer.
+					Academy. I have 5 years of experience, 4 of those years at NTI
+					Södertörn, where I studied web development and programming. I don’t
+					have any formal work experience in web development, but I have a
+					strong desire to learn and grow in this field. I’m a quick learner and
+					have a passion for coding and web development.
 				</p>
 				<br />
 				<p className="cv-text">
-					Now in my first year at Chas Academy, I’ve expanded my skills in
-					full-stack development. I’m proficient in HTML, CSS, JavaScript,
-					React, C#, PHP, and Python. My background allows me to handle both
-					front-end and back-end challenges effectively.
+					I’ve worked on various projects, including two team-based projects,
+					where I honed my skills in collaboration and problem-solving. I’m
+					proficient in HTML, CSS, JavaScript, and C#, and I’m comfortable using
+					React and TypeScript. I’m also familiar with version control systems
+					like Git and GitHub.
 				</p>
 				<br />
 				<p className="cv-text">
-					I’m passionate about building clean, efficient, and user-friendly
-					solutions. I’m actively seeking a full-time web developer role where I
-					can grow my skills further and contribute to a dynamic team.
+					I’m looking for something that will allow me to both learn and grow as
+					a developer as well as apply the skills I’ve acquired so far. I’m open
+					to working in a team or independently.
 				</p>
 			</section>
 			{/* <section className="cv-section summarySection">
@@ -178,8 +180,9 @@ const CVComponent = () => {
 				<div className="cv-text">
 					<h4>Boozer</h4>
 					<p>
-						Developed a React-based inventory app for tracking alcohol stock.
-						Used local storage to save data and generate shopping lists.
+						Developed a React-based inventory app for tracking your current
+						liquor stock, as to ease the process of making cocktails utlizing
+						ChatGPT. Built with React, TypeScript, and Bootstrap.
 					</p>
 				</div>
 			</section>

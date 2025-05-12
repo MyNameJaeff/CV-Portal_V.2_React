@@ -43,15 +43,6 @@
             ]
         },
         {
-            "name": "???",
-            "text": "????????",
-            "number": 5,
-            "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            "images": [
-                "404... no just kidding, i just haven't made this project yet"
-            ]
-        },
-        {
             "name": "Blog Website",
             "text": "This project was about creating a website using PHP where a user could create an account and write blog posts, which would then be shown on the website. We we're tasked to take the inputed data and store it in a database, and then retrieve it and show it on the website. It was also able to take in an image input and store the image as a link in the database, and then show the image on the website. I made it possible to access a users profile where all of their posts showed up by sorting the posts by the users ID.",
             "number": 6,
