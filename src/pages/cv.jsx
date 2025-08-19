@@ -95,7 +95,7 @@ const CVComponent = () => {
 				<p className="cv-text">
 					I’m looking for something that will allow me to both learn and grow as
 					a developer as well as apply the skills I’ve acquired so far. I’m open
-					to working in a team or independently.
+					to working in a team or independently, on location or remotely.
 				</p>
 			</section>
 			{/* <section className="cv-section summarySection">
@@ -162,7 +162,9 @@ const CVComponent = () => {
 			<section className="cv-section projectsSection">
 				<h3 className="cv-heading">Projects</h3>
 				<div className="cv-text">
-					<h4>Personal Portfolio</h4>
+					<a href="https://personal-portfolio-three-henna.vercel.app/" target="_blank" rel="noopener noreferrer">
+						<h4>Personal Portfolio</h4>
+					</a>
 					<p>
 						Developed a portfolio website using React to showcase projects and
 						provide contact information. Designed in Figma.
@@ -170,7 +172,9 @@ const CVComponent = () => {
 				</div>
 				<br />
 				<div className="cv-text">
-					<h4>Schoolsoft Redesign</h4>
+					<a href="https://github.com/MyNameJaeff/Schoolsoft-redesign" target="_blank" rel="noopener noreferrer">
+						<h4>Schoolsoft Redesign</h4>
+					</a>
 					<p>
 						Led a team of four in redesigning Schoolsoft for better usability
 						and accessibility. Built with HTML, CSS, JavaScript, and Bootstrap.
@@ -178,11 +182,24 @@ const CVComponent = () => {
 				</div>
 				<br />
 				<div className="cv-text">
-					<h4>Boozer</h4>
+					<a href="https://boozer-git-main-fredrik-as-projects.vercel.app/inventory" target="_blank" rel="noopener noreferrer">
+						<h4>Boozer</h4>
+					</a>
 					<p>
 						Developed a React-based inventory app for tracking your current
 						liquor stock, as to ease the process of making cocktails utlizing
 						ChatGPT. Built with React, TypeScript, and Bootstrap.
+					</p>
+				</div>
+				<br />
+				<div className="cv-text">
+					<a href="https://chasacademy.se/job/grupp-11-karriarpartner" target="_blank" rel="noopener noreferrer">
+						<h4>Karriärpartner</h4>
+					</a>
+					<p>
+						&quot;Karriärpartner är en digital plattform där användare enkelt kan ta nästa steg i sin karriär – genom kurser,
+						vägledning och nedladdningsbara mallar. Plattformen kombinerar personlig utveckling med en affärsmodell
+						för passiv inkomst. Det unika är att både användare och kursägare växer tillsammans&quot;
 					</p>
 				</div>
 			</section>

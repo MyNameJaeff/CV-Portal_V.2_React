@@ -1,6 +1,15 @@
 {
     "projects": [
         {
+            "name": "Karriärpartner",
+            "text": "This was a group project during my first year at Chas Academy, where we created a digital platform for career development. The platform combines personal development with a business model for passive income, by offering courses, guidance, and downloadable templates.",
+            "number": 0,
+            "link": "https://chasacademy.se/job/grupp-11-karriarpartner",
+            "images": [
+                "karriärpartner.webp"
+            ]
+        },
+        {
             "name": "Personal Portfolio",
             "text": "This the first portfolio i have ever created. I created this portfolio to showcase my projects and to give you some information about myself, including contact information for questions surrounding my works. I used the framework React to create the website, and designed it in Figma. The code isn't beautiful, but it works.",
             "number": 1,

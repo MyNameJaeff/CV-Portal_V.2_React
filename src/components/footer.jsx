@@ -1,4 +1,4 @@
-let isEasterEgg2active = false;
+/* let isEasterEgg2active = false;
 let isEasterEgg1Active = false;
 
 const easterEgg1 = () => {
@@ -42,20 +42,21 @@ const easterEgg2 = () => {
 		document.body.style.backgroundImage =
 			"url('https://static.vecteezy.com/system/resources/previews/041/879/642/non_2x/ai-generated-colorful-easter-eggs-nestled-in-alpine-meadow-with-majestic-mountain-landscape-springtime-celebration-and-holiday-traditions-amidst-breathtaking-natural-scenery-photo.jpg')";
 	}
-};
+}; */
 
 const Footer = () => {
 	return (
 		<footer>
-			<div
+			<div /> {/* Empty div for style */}
+			{/* <div
 				className="easterEgg"
 				id="easterEgg"
 				onClick={easterEgg2}
-				onKeyDown={(e) => {
-					if (e.key === "Enter") easterEgg2();
+				onKeyDown={() => {
+					easterEgg2();
 				}}
-			/>
-			<p>&copy; 2024 CV-Portal</p>
+			/> */}
+			<p>&copy; {new Date().getFullYear()} CV-Portal</p>
 			<div /> {/* Empty div for style */}
 		</footer>
 	);
